@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\pre-dexed\debug\classes-052bb40ceef7d9a7fb9fa3714810b5440260b678.jar" />
+    </item>
+    <item
+        jar="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c95ba8152923e4872e86a82cfcba9a51c0214328">
+        <dex dex="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\pre-dexed\debug\classes-a43985fe1ea1c1990bd4e632782256fefc1bfec6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\exploded-aar\com.android.volley\volley\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2ef3d2dfdda0d90c16104d281731dccfffcea7f3">
+        <dex dex="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\pre-dexed\debug\classes-e44f349ca63fe8acbcb599c6545e03fdf79e8178.jar" />
+    </item>
+    <item
+        jar="C:\Users\Savan\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.1.1\support-annotations-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01d051a6bfb1218b1db2d3a5af0480ac2c25c42a">
+        <dex dex="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.1-78b13726a546659ef84a29dfb162a28673219500.jar" />
+    </item>
+    <item
+        jar="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\exploded-aar\org.uribeacon\uribeacon-library-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="139ac6a4734908b841e816a63a55da7100e81c97">
+        <dex dex="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\pre-dexed\debug\classes-b7860899e225328b8e8f431692982f85cdf74d1d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\jars\libs\internal_impl-22.1.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
+        <dex dex="C:\Users\Savan\AndroidStudioProjects\PhysicalWeb\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-799d41b1337b12c8f5bf6c1c09d6d1675b08174a.jar" />
+    </item>
+
+</items>

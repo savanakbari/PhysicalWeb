@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context="org.physical_web.physicalweb.TagData">
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="60dp"
+        android:text="Tag ID "
+        android:id="@+id/tagId"
+        android:layout_gravity="center_horizontal"
+
+        android:typeface="monospace"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="10dp"
+        android:text="Large Text"
+        android:id="@+id/tagId_data"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#899399"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="15dp"
+        android:text="Location"
+        android:id="@+id/location"
+        android:layout_gravity="center_horizontal"
+
+        android:typeface="monospace"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="10dp"
+        android:text="Large Text"
+        android:id="@+id/location_data"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#899399"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="15dp"
+        android:text="Office Hours"
+        android:id="@+id/officeHour"
+        android:layout_gravity="center_horizontal"
+
+        android:typeface="monospace" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="10dp"
+        android:text="Large Text"
+        android:id="@+id/officeHour_data"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#899399"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="15dp"
+        android:text="Other Info"
+        android:id="@+id/info"
+        android:layout_gravity="center_horizontal"
+
+        android:typeface="monospace"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="10dp"
+        android:text="Large Text"
+        android:id="@+id/info_data"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#899399"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description"
+        android:id="@+id/description"
+        android:layout_gravity="center_horizontal"
+
+        android:typeface="monospace"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/description_data"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#899399"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+</LinearLayout>
