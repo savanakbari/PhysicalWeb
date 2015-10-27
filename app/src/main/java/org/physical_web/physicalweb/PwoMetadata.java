@@ -16,6 +16,8 @@
 
 package org.physical_web.physicalweb;
 
+import android.app.Fragment;
+import android.app.FragmentBreadCrumbs;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Base64;
+import android.view.View;
 import android.webkit.URLUtil;
 
 import org.uribeacon.scan.util.RangingUtils;
@@ -232,7 +235,7 @@ class PwoMetadata implements Comparable<PwoMetadata> {
     return urlMetadata != null;
   }
 
-  public String getNavigableUrl() {
+  public String  getNavigableUrl() {
     String urlToNavigateTo = url;
     if (hasUrlMetadata()) {
       String siteUrl = urlMetadata.siteUrl;
@@ -271,12 +274,14 @@ class PwoMetadata implements Comparable<PwoMetadata> {
     Intent intent = new Intent(Intent.ACTION_VIEW);
     intent.setData(Uri.parse(urlToNavigateTo));
     return intent;
+//
   }
 
   public PendingIntent createNavigateToUrlPendingIntent(Context context) {
     Intent intent = createNavigateToUrlIntent();
     int requestID = (int) System.currentTimeMillis();
     return PendingIntent.getActivity(context, requestID, intent, 0);
+
   }
 
   public int compareTo(PwoMetadata other) {

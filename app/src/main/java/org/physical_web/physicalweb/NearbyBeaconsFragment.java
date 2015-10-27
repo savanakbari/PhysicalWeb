@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -244,7 +245,16 @@ public class NearbyBeaconsFragment extends ListFragment
     }
     // Get the url for the given item
     PwoMetadata pwoMetadata = mNearbyDeviceAdapter.getItem(position);
-    Intent intent = pwoMetadata.createNavigateToUrlIntent();
+
+
+// change made for the project 3. Instead of passing intent from PwoMetadata , we just obtain URL in below function, &
+//  used intent to navigate to another activity.
+
+// Intent intent = pwoMetadata.createNavigateToUrlIntent();
+    String url=pwoMetadata.getNavigableUrl();
+    Intent intent=new Intent(this.getActivity().getBaseContext(),TagData.class);
+    intent.setData(Uri.parse(url));
+    intent.putExtra("tagdata",url);
     startActivity(intent);
   }
 

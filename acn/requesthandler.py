@@ -15,7 +15,7 @@ def handlerequest(clientsocket: socket.socket):
     cursor.execute(query)
     s=[]
     for (id, location, officehours, otherinfo, description) in cursor:
-        s = [location + ',', officehours + ',', otherinfo + ',', description]
+        s = [str(id)+','+location + ',', officehours + ',', otherinfo + ',', description]
         s.insert(0, str(len(''.join(s)))+',')
     clientsocket.send(bytes(''.join(s),encoding='utf8'))
     clientsocket.close()

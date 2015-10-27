@@ -1,28 +1,37 @@
 package org.physical_web.physicalweb;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import org.physical_web.physicalweb.R;
 
-public class TagData extends ActionBarActivity {
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+public class TagData extends Activity {
+
+    TextView tagid, info, location, officehour, description;
+    TextView tagid_data,info_data,location_data,officehour_data,description_data;
+    public static String recv_data;
+    public static String url_id;
+    SharedPreferences sharedPref;
+    public String PHYDB="phydb_pref";
 
 
-    private  int[] textView = {
-
-            R.id.tagId,R.id.tagId_data,
-            R.id.location,R.id.location_data,
-            R.id.officeHour,R.id.officeHour_data,
-            R.id.info,R.id.info_data,
-            R.id.description,R.id.description_data
-    };
-    private TextView[] textViewData;
-
-
-
+//   List<String> resultTag = Arrays.asList("001", "ERB", "Dr elmasri");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
