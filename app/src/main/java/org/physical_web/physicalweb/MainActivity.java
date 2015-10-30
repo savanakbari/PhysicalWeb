@@ -74,6 +74,11 @@ public class MainActivity extends Activity {
       case R.id.action_about:
         showAboutFragment();
         return true;
+
+
+      case R.id.saved_tagdata:
+        startActivity(new Intent(this,SavedTagData.class));
+        return true;
       // If the action bar up button was pressed
       case android.R.id.home:
         getFragmentManager().popBackStack();

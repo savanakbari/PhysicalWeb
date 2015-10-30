@@ -77,6 +77,10 @@
             android:name=".TagData"
             android:label="@string/title_activity_tag_data" >
         </activity>
+        <activity
+            android:name=".SavedTagData"
+            android:label="@string/title_activity_saved_tag_data" >
+        </activity>
     </application>
 
 </manifest>

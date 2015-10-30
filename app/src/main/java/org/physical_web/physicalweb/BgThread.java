@@ -26,14 +26,14 @@ public class BgThread extends AsyncTask {
         byte[] databytes=null;
         try {
 
-           // String id=TagData.url_id;
+            String id=TagData.url_id;
             // replace 001 with id . N0t checked yet
             InetAddress servaddress=InetAddress.getByName("192.168.173.1");
             socket=new Socket();
             socket.setReuseAddress(true);
             socket.connect(new InetSocketAddress(servaddress, 8888));
             OutputStream os=socket.getOutputStream();
-            os.write("001".getBytes());
+            os.write(id.getBytes());  // os.write("001".getBytes();
             socket.shutdownOutput();
             InputStream is=socket.getInputStream();
             String s="";

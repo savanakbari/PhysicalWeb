@@ -29,6 +29,7 @@ public class TagData extends Activity {
     public static String url_id;
     SharedPreferences sharedPref;
     public String PHYDB="phydb_pref";
+    Integer tag_length=3;
 
 
 //   List<String> resultTag = Arrays.asList("001", "ERB", "Dr elmasri");
@@ -47,8 +48,16 @@ public class TagData extends Activity {
 
     recv_data=getIntent().getStringExtra("tagdata");
     int length =recv_data.length();
-    int index=recv_data.lastIndexOf('/');
-    url_id =recv_data.substring(index +1, length);
+    if (length==tag_length)
+    {
+        url_id=recv_data;
+    }
+    else{
+        int index=recv_data.lastIndexOf('/');
+        url_id =recv_data.substring(index +1, length);
+    }
+
+
     //tagid_data.setText(url_id);
 
 

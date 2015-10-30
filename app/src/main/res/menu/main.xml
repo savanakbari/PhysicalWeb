@@ -7,10 +7,15 @@
           app:showAsAction="never"
           android:orderInCategory="100"
           android:id="@+id/action_config"/>
-
+    <item android:title="@string/saved_tagdata"
+          app:showAsAction="never"
+          android:orderInCategory="100"
+          android:id="@+id/saved_tagdata"/>
     <item android:title="@string/action_about"
           app:showAsAction="never"
           android:orderInCategory="100"
           android:id="@+id/action_about"/>
+
+
 
 </menu>
