@@ -51,6 +51,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -254,7 +255,7 @@ public class NearbyBeaconsFragment extends ListFragment
     String url=pwoMetadata.getNavigableUrl();
     Intent intent=new Intent(this.getActivity().getBaseContext(),TagData.class);
     intent.setData(Uri.parse(url));
-    intent.putExtra("tagdata",url);
+    intent.putExtra("tagdata", url);
     startActivity(intent);
   }
 
@@ -340,13 +341,20 @@ public class NearbyBeaconsFragment extends ListFragment
 
   private void emptyPwoMetadataQueue() {
     Collections.sort(mPwoMetadataQueue);
+    SharedPref sharedPref=new SharedPref(this.getActivity().getBaseContext());
     for (PwoMetadata pwoMetadata : mPwoMetadataQueue) {
       mNearbyDeviceAdapter.addItem(pwoMetadata);
+      String url=pwoMetadata.getNavigableUrl();
+      String tagid=gettagid(url);
+      sharedPref.putListString(tagid,url);
     }
     mPwoMetadataQueue.clear();
     safeNotifyChange();
   }
 
+  private String gettagid(String url){
+    return url.substring(url.lastIndexOf('/')+1);
+  }
   private void showListView() {
     if (getListView().getVisibility() == View.VISIBLE) {
       return;

@@ -7,28 +7,23 @@ import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 
 public class SharedPref {
 
     public SharedPreferences preferences;
-
-
     public SharedPref(Context context){
-        preferences= PreferenceManager.getDefaultSharedPreferences(context);
+        preferences=context.getSharedPreferences("urlprefs",Context.MODE_APPEND);
     }
 
-
-    public ArrayList<String> getListString(String key) {
-        return new ArrayList<String>(Arrays.asList(TextUtils.split(preferences.getString(key,""),"++")));
+    public Map<String,?> getAllPrefs() {
+        return preferences.getAll();
     }
 
-
-    public void putListString(String key, ArrayList<String> stringList) {
-    String[] myStringList = stringList.toArray(new String[stringList.size()]);
-    preferences.edit().putString(key, TextUtils.join("++", myStringList)).apply();
-        }
-
+    public void putListString(String key, String url) {
+        preferences.edit().putString(key, url).apply();
     }
+}
 
 

@@ -40,41 +40,22 @@ public class TagData extends Activity {
         setContentView(R.layout.tag_data);
 
 
-     tagid_data = (TextView)findViewById(R.id.tagId_data);
-     location_data = (TextView)findViewById(R.id.location_data);
-     officehour_data = (TextView)findViewById(R.id.officeHour_data);
-     info_data = (TextView)findViewById(R.id.info_data);
-     description_data = (TextView)findViewById(R.id.description_data);
+        tagid_data = (TextView)findViewById(R.id.tagId_data);
+        location_data = (TextView)findViewById(R.id.location_data);
+        officehour_data = (TextView)findViewById(R.id.officeHour_data);
+        info_data = (TextView)findViewById(R.id.info_data);
+        description_data = (TextView)findViewById(R.id.description_data);
 
-    recv_data=getIntent().getStringExtra("tagdata");
-    int length =recv_data.length();
-    if (length==tag_length)
-    {
-        url_id=recv_data;
-    }
-    else{
-        int index=recv_data.lastIndexOf('/');
-        url_id =recv_data.substring(index +1, length);
-    }
-
-
-    //tagid_data.setText(url_id);
-
-
-  //  sharedPref= getSharedPreferences(PHYDB, Context.MODE_PRIVATE);
-    //    sharedPref.edit().putStringSet(url_id,resultTag);
-
-      //  SharedPref pref =new SharedPref(this);
-    //pref.putListString("001",resultTag);
-
-    int corePoolSize = 60;
-    int maximumPoolSize = 80;
-    int keepAliveTime = 10;
-    BlockingQueue<Runnable> queue=new LinkedBlockingQueue<>(maximumPoolSize);
-    AsyncTask task=new BgThread().executeOnExecutor(new ThreadPoolExecutor(corePoolSize,maximumPoolSize,keepAliveTime, TimeUnit.SECONDS,queue));
+        recv_data=getIntent().getStringExtra("tagdata");
+        url_id =recv_data.substring(recv_data.lastIndexOf('/')+1);
+        int corePoolSize = 60;
+        int maximumPoolSize = 80;
+        int keepAliveTime = 10;
+        BlockingQueue<Runnable> queue=new LinkedBlockingQueue<>(maximumPoolSize);
+        AsyncTask task=new BgThread().executeOnExecutor(new ThreadPoolExecutor(corePoolSize,maximumPoolSize,keepAliveTime, TimeUnit.SECONDS,queue));
 
         try {
-          String[] result=(String[])task.get();
+            String[] result=(String[])task.get();
 
             if(result!=null) {
                 tagid_data.setText(result[0]);
@@ -83,11 +64,11 @@ public class TagData extends Activity {
                 info_data.setText(result[3]);
                 description_data.setText(result[4]);
             }
-          }
-         catch (InterruptedException e) {
+        }
+        catch (InterruptedException e) {
             e.printStackTrace();
-            }
-         catch (ExecutionException e) {
+        }
+        catch (ExecutionException e) {
             e.printStackTrace();
         }}
 
@@ -102,7 +83,7 @@ public class TagData extends Activity {
 
         int id = item.getItemId();
 
-               if (id == R.id.action_settings) {
+        if (id == R.id.action_settings) {
             return true;
         }
 

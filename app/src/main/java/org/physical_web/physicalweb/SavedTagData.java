@@ -14,29 +14,33 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 
 public class SavedTagData extends Activity {
 
-    String[] tag= {"009","005","390"};
+    ArrayList<String> tag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.saved_tag_data);
-
+        SharedPref prefs=new SharedPref(this.getBaseContext());
+        Map<String,?> urls=prefs.getAllPrefs();
+        if (urls.size()==0)
+            return;
+        tag=new ArrayList<>();
+        for(String key:urls.keySet()){
+            tag.add(urls.get(key).toString());
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.list_view_saved_data,tag);
         ListView lv= (ListView) findViewById(R.id.list);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            String lvdata= (String) ((TextView) view).getText();
-           try{
-               Integer tagid=Integer.parseInt(lvdata);
-               //Toast.makeText(getApplicationContext(), tagid.toString(),Toast.LENGTH_SHORT).show();
-           } catch (Exception e) {
-               e.printStackTrace();
-           }
+                String lvdata= (String) ((TextView) view).getText();
                 Intent intent= new Intent(getBaseContext(),TagData.class);
                 intent.putExtra("tagdata",lvdata);
                 startActivity(intent);
