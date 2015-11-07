@@ -2,7 +2,9 @@ package org.physical_web.physicalweb;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,7 +23,7 @@ import java.util.Map;
 public class SavedTagData extends Activity {
 
     ArrayList<String> tag;
-
+    ArrayAdapter<String> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,7 @@ public class SavedTagData extends Activity {
         for(String key:urls.keySet()){
             tag.add(urls.get(key).toString());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.list_view_saved_data,tag);
+        adapter = new ArrayAdapter<String>(this,R.layout.list_view_saved_data,tag);
         ListView lv= (ListView) findViewById(R.id.list);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,8 +66,13 @@ public class SavedTagData extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_cleardata) {
+           SharedPreferences preferences=getSharedPreferences("urlprefs", Context.MODE_PRIVATE);
+            if(preferences==null || adapter==null) return true;
+            SharedPreferences.Editor editor=preferences.edit();
+            editor.clear();
+            editor.commit();
+            adapter.notifyDataSetChanged();
         }
 
         return super.onOptionsItemSelected(item);

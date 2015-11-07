@@ -258,9 +258,9 @@ public class PwoDiscoveryService extends Service
     // Stop the scanners
     mHandler.removeCallbacks(mFirstScanTimeout);
     mHandler.removeCallbacks(mSecondScanTimeout);
-    for (PwoDiscoverer pwoDiscoverer : mPwoDiscoverers) {
-      pwoDiscoverer.stopScan();
-    }
+ //   for (PwoDiscoverer pwoDiscoverer : mPwoDiscoverers) {
+//      pwoDiscoverer.stopScan();
+//    }
 
     saveCache();
     super.onDestroy();

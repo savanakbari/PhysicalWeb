@@ -37,7 +37,7 @@ public class ScreenListenerService extends Service {
       if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
         context.startService(discoveryIntent);
       } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
-        context.stopService(discoveryIntent);
+//        context.stopService(discoveryIntent);
       }
     }
   };

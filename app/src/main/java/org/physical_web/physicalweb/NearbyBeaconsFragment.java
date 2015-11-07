@@ -16,9 +16,6 @@
 
 package org.physical_web.physicalweb;
 
-import org.physical_web.physicalweb.PwoMetadata.BleMetadata;
-import org.physical_web.physicalweb.PwoMetadata.UrlMetadata;
-
 import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.ObjectAnimator;
@@ -45,13 +42,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.physical_web.physicalweb.PwoMetadata.BleMetadata;
+import org.physical_web.physicalweb.PwoMetadata.UrlMetadata;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 
 /**
