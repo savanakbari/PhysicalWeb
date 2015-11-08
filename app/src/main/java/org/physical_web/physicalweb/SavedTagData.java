@@ -73,8 +73,16 @@ public class SavedTagData extends Activity {
             editor.clear();
             editor.commit();
             adapter.notifyDataSetChanged();
+            startActivity(new Intent(this,SavedTagData.class));
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        startActivity(new Intent(this,MainActivity.class));
+
     }
 }
