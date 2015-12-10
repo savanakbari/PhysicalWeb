@@ -45,6 +45,7 @@ import android.widget.TextView;
 import org.physical_web.physicalweb.PwoMetadata.BleMetadata;
 import org.physical_web.physicalweb.PwoMetadata.UrlMetadata;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,6 +81,8 @@ public class NearbyBeaconsFragment extends ListFragment
   private boolean mDebugViewEnabled = false;
   private boolean mSecondScanComplete;
 
+
+  public static ArrayList<String> timeArray = new ArrayList<String>();
   // The display of gathered urls happens as follows
   // 0. Begin scan
   // 1. Sort and show all urls (mFirstScanTimeout)
@@ -346,6 +349,9 @@ public class NearbyBeaconsFragment extends ListFragment
       String url=pwoMetadata.getNavigableUrl();
       String tagid=gettagid(url);
       sharedPref.putListString(tagid,url);
+      android.text.format.DateFormat.format("yyyy-mm-dd hh:ss",new java.util.Date());
+      String dateTime = DateFormat.getDateTimeInstance().format(new Date());
+      timeArray.add(dateTime);
     }
     mPwoMetadataQueue.clear();
     safeNotifyChange();

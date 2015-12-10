@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,14 +17,27 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.physical_web.physicalweb.ssdp.BgThreadPreview;
+
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 public class SavedTagData extends Activity {
 
     ArrayList<String> tag;
-    ArrayAdapter<String> adapter;
+    CustomTagAdapter adapter;
+    public static ArrayList<String> roomlist;
+    int corePoolSize = 60;
+    int maximumPoolSize = 80;
+    int keepAliveTime = 10;
+    BlockingQueue<Runnable> queue=new LinkedBlockingQueue<>(maximumPoolSize);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,16 +47,19 @@ public class SavedTagData extends Activity {
         if (urls.size()==0)
             return;
         tag=new ArrayList<>();
+        roomlist=new ArrayList<>();
         for(String key:urls.keySet()){
             tag.add(urls.get(key).toString());
+            getClassInfo(key);
         }
-        adapter = new ArrayAdapter<String>(this,R.layout.list_view_saved_data,tag);
+        adapter = new CustomTagAdapter(this,tag);
+      //  adapter = new ArrayAdapter<String>(this,R.layout.list_view_saved_data,tag);
         ListView lv= (ListView) findViewById(R.id.list);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String lvdata= (String) ((TextView) view).getText();
+                String lvdata= (String) ((TextView) view.findViewById(R.id.saved_tag)).getText();
                 Intent intent= new Intent(getBaseContext(),TagData.class);
                 intent.putExtra("tagdata",lvdata);
                 startActivity(intent);
@@ -52,6 +69,22 @@ public class SavedTagData extends Activity {
 
     }
 
+    private void getClassInfo(String key){
+        AsyncTask task=new BgThreadPreview(key).executeOnExecutor(new ThreadPoolExecutor(corePoolSize,maximumPoolSize,keepAliveTime, TimeUnit.SECONDS,queue));
+
+        try {
+            String result=(String)task.get();
+
+            if(result!=null) {
+                this.roomlist.add(result);
+            }
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        catch (ExecutionException e) {
+            e.printStackTrace();
+        }}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
